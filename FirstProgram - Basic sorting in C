@@ -1,0 +1,54 @@
+#include <stdio.h>
+int main()
+{
+    int i,j,n,a[10],temp;
+    printf("Enter number:");
+    scanf("%d", &n);
+    
+    for(i=0;i<n;i++)
+       scanf("%d",&a[i]);
+       
+    for(i=0;i<n;i++)
+        printf("%2d",a[i]);
+    
+       
+    if(n%2==0)
+    {
+        for(i=0;i<n/2;i++)
+            for(j=i+1;j<n/2;j++)
+                if(a[i]>a[j])
+                    {
+                        temp=a[i];
+                        a[i]=a[j];
+                        a[j]=temp;
+                    }
+    }   
+    
+    else
+    {
+         for(i=0;i<=n/2;i++)
+            for(j=i+1;j<=n/2;j++)
+                if(a[i]>a[j])
+                    {
+                        temp=a[i];
+                        a[i]=a[j];
+                        a[j]=temp;
+                    }
+    }
+    
+    while(i<n)
+    {
+        for(j=i+1;j<n;j++)
+            if(a[i]<a[j])
+            {
+                temp=a[i];
+                a[i]=a[j];
+                a[j]=temp;
+            }
+        i++;
+    }
+    printf("\n");
+    for(i=0;i<n;i++)
+        printf("%2d",a[i]);
+    return 0;
+}
