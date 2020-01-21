@@ -1,0 +1,39 @@
+#function to find the square root of a number
+def sqrt(n):
+    l = 1
+    h = n
+    while l <= h:
+        mid = (l+h)//2
+        i = mid * mid
+        if(i == n):
+            return mid
+        if(i > n):
+            h = mid - 1
+        else:
+            l = mid + 1
+    return -1
+
+def tryAgain():
+    c = ''
+    while True:
+        c = input("Do you want to try again?(Y/N):")
+        if c == 'Y' or c == 'y' or c == 'N' or c == 'n':
+            break
+        else:
+            print("Enter a valid value!")
+    return c
+
+#driver code to run the function
+ch = True
+c = ''
+while(ch):
+    n = int(input("Enter number:"))
+    i = sqrt(n)
+    if(i == -1):
+        print("Not a perfect square!")
+    else:
+        print("sqrt of number:",i)
+    c = tryAgain()
+    if c == 'N' or c == 'n' :
+        print("Exiting program")
+        ch = False
